@@ -1,13 +1,243 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+:root{
+  --color-primary: #ff5900;
+  --color-secondary:  #ca2173;
+  --color-accent: #FF5900;
+  --color-background: #0a0d18;
+  --color-background-secondary: #1d2028;
+  --color-background-light: #1c1f28d3;
+  --color--light-primary:#ee98a3;
+  --color-text: #333;
+  --color-edit: #7000ff;
+  --color-delete: #f50905;
+}
+body{
+  background-color: aliceblue;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding: 0%;
+  margin: 0%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.layout{
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-areas:
+  "header header header header"
+  "nav nav nav nav"
+  "content content content lateral"
+  "footer footer footer footer";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 120px 50px auto 70px;
+}
+
+
+/*----------------------------Button-----------------------------*/
+
+button{
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+button,
+input[type="submit"],
+input[type="button"]{
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.edit:hover{
+  background-color: var(--color-edit);
+}
+
+.delete:hover{
+  background-color: var(--color-delete);
+}
+
+.lateral button{
+  background-color: var(--color-secondary);
+}
+
+.lateral button:hover{
+  background-color: var(--color-accent);
+}
+
+.item .edit{
+  margin-right: 8px;
+}
+
+
+/*----------------------------Header-----------------------------*/
+.header{
+  grid-area: header;
+  background-color: var(--color-background-secondary);
+  padding: 20px;
+  text-align: left;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3.5em;
+  font-weight: 800;
+  text-align: center;
+  color: var(--color-primary);
+  border-radius: 10px;
+  animation: neon-glow 2s infinite alternate;
+}
+
+@keyframes neon-glow {
+  to {
+    text-shadow: 0 0 20px var(--color-accent), 0 0 30px var(--color-accent), 0 0 40px var(--color-accent);
+  }
+}
+
+header img {
+  width: 40px;
+  padding: 10px;
+  filter: drop-shadow(0 0 10px var(--color-accent))
+          drop-shadow(0 0 20px var(--color-accent))
+          drop-shadow(0 0 30px var(--color-accent));
+  animation: neon-glow-img 2s infinite alternate;
+}
+
+@keyframes neon-glow-img {
+  to {
+    filter: drop-shadow(0 0 20px var(--color-accent))
+            drop-shadow(0 0 30px var(--color-accent))
+            drop-shadow(0 0 40px var(--color-accent));
+  }
+}
+
+
+/*----------------------------Nav-----------------------------*/
+
+.nav{
+  grid-area: nav;
+  background: linear-gradient(to bottom, var(--color-background-secondary) 10%, var(--color-background) 90%);
+  position: sticky;
+  top:0;
+}
+
+.nav > ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.nav li{
+  align-items: center;
+  padding-right: 20px;
+}
+
+.nav a:hover{
+  color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.nav a {
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.content{
+  grid-area: content;
+  background-image: url("./img/popcorn.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  padding-top: 20px;
+  padding-right: 30px;
+}
+
+.featured{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.item{
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px var(--color-accent);
+  margin: 20px;
+  padding: 20px;
+  flex-grow: 1; /* Ver si me combiene */
+}
+
+
+/*----------------------------Lateral-----------------------------*/
+
+.lateral{
+  grid-area: lateral;
+  background-color: var(--color-background-light);
+  padding: 20px;
+}
+
+.lateral > div{
+  box-sizing: border-box;
+  width: 90%;
+  margin: 20px;
+  padding: 20px;
+  background: rgb(232, 220, 220);
+  border-radius: 10px;
+  box-shadow: 2px 4px 6px var(--color-secondary);
+}
+
+input, textarea{
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--color-secondary);
+  border-radius: 5px;
+  justify-content: left;
+}
+
+
+.footer{
+  color: rgba(255, 255, 255, 0.454);
+  grid-area: footer;
+  background: linear-gradient(to bottom, var(--color-background-secondary) 10%, var(--color-background) 90%);
+}
+
+@media (max-width: 360px) {
+  .layout {
+      grid-template-areas:
+          "header"
+          "nav"
+          "content"
+          "lateral"
+          "footer";
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto;
+  }
+
+  .content {
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+  }
+
+  .item {
+      width: 90%;
+      box-sizing: border-box;
+  }
 }
