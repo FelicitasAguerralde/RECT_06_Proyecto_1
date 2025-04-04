@@ -1,4 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { SaveInStorage } from "../helpers/SaveInStorage";
+
+
 
 export const Add = () => {
   const title = "Agregar Pelicula";
@@ -28,36 +31,9 @@ export const Add = () => {
 
     // Guardar en el almacenamiento local
     localStorage.setItem("movies", JSON.stringify([...movies, movie]));
+    SaveInStorage("movies", movie);
   };
 
-  const saveInStorage = movie => {
-  // Obtener los datos del localStorage
-  let moviesInStorage = localStorage.getItem("movies");
-
-  // Verificar si los datos existen y son válidos
-  try {
-    moviesInStorage = JSON.parse(moviesInStorage) || []; // Si es null, inicializar como un array vacío
-  } catch (error) {
-    console.error("Error al analizar los datos de localStorage:", error);
-    moviesInStorage = []; // Si hay un error, inicializar como un array vacío
-  }
-
-  // Actualizar el estado con las películas del almacenamiento local
-  if (Array.isArray(moviesInStorage)) {
-    console.log("Películas en almacenamiento local:", moviesInStorage);
-    setMovies(moviesInStorage);
-  } else {
-    console.warn("Los datos en localStorage no son un array válido.");
-    setMovies([]);
-  }
-
-  return movie;
-};
-
-  // Llamar a saveInStorage cuando el componente se monte
-  useEffect(() => {
-    saveInStorage();
-  }, []);
 
   return (
     <div className="add">
