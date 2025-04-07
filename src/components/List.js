@@ -12,6 +12,13 @@ export const List = ({listState, setListState}) => {
     return movies;
   };
 
+  const deleteMovie = (id) => {
+    let movies = getMovies();
+    let newMovies = movies.filter(movie => movie.id !== parseInt(id));
+    setListState(newMovies);
+    localStorage.setItem("movies", JSON.stringify(newMovies));
+  }
+
   return (
     <>
       {listState != null ? listState.map(movie => {
@@ -20,7 +27,7 @@ export const List = ({listState, setListState}) => {
               <h3 className="title">{movie.title}</h3>
               <p className="description">{movie.description}</p>
               <button className="edit">Editar</button>
-              <button className="delete">Eliminar</button>
+              <button className="delete" onClick={()=> deleteMovie(movie.id)}>Eliminar</button>
             </article>
         );
       })
