@@ -1,64 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 
-export const Listado = () => {
+export const List = ({listState, setListState}) => {
+  
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  const getMovies = () => {
+    let movies = JSON.parse(localStorage.getItem("movies")) || [];
+    setListState(movies);
+    return movies;
+  };
+
   return (
     <>
-    <div className="featured">
-            <article className="item">
-                <h3 className="title">Desarrollo Web</h3>
-                <p className="description">Historia de la WEB</p>
-                <button className="edit">Editar</button>
-                <button className="delete">Eliminar</button>
+      {listState != null ? listState.map(movie => {
+        return ( 
+            <article key={movie.id} className="item">
+              <h3 className="title">{movie.title}</h3>
+              <p className="description">{movie.description}</p>
+              <button className="edit">Editar</button>
+              <button className="delete">Eliminar</button>
             </article>
-
-            <article className="item">
-                <h3 className="title">Desarrollo Web</h3>
-                <p className="description">Historia de la WEB</p>
-                <button className="edit">Editar</button>
-                <button className="delete">Eliminar</button>
-            </article>
-
-            <article className="item">
-                <h3 className="title">Desarrollo Web</h3>
-                <p className="description">Historia de la WEB</p>
-                <button className="edit">Editar</button>
-                <button className="delete">Eliminar</button>
-            </article>
-
-            <article className="item">
-                <h3 className="title">Desarrollo Web</h3>
-                <p className="description">Historia de la WEB</p>
-                <button className="edit">Editar</button>
-                <button className="delete">Eliminar</button>
-            </article>
-
-            <article className="item">
-                <h3 className="title">Desarrollo Web</h3>
-                <p className="description">Historia de la WEB</p>
-                <button className="edit">Editar</button>
-                <button className="delete">Eliminar</button>
-            </article>
-            
-            <article className="item">
-                <h3 className="title">Desarrollo Web</h3>
-                <p className="description">Historia de la WEB</p>
-                <button className="edit">Editar</button>
-                <button className="delete">Eliminar</button>
-            </article>
-
-            <article className="item">
-                <h3 className="title">Desarrollo Web</h3>
-                <p className="description">Historia de la WEB</p>
-                <button className="edit">Editar</button>
-                <button className="delete">Eliminar</button>
-            </article>
-
-            <article className="item">
-                <h3 className="title">Desarrollo Web</h3>
-                <p className="description">Historia de la WEB</p>
-                <button className="edit">Editar</button>
-                <button className="delete">Eliminar</button>
-            </article>
-            </div>
+        );
+      })
+    : <h2>No hay películas</h2>}
     </>
-)};
+  );
+};

@@ -1,9 +1,7 @@
 import React from "react";
 import { SaveInStorage } from "../helpers/SaveInStorage";
 
-
-
-export const Add = () => {
+export const Create = ({setListState}) => {
   const title = "Agregar Pelicula";
 
   const [movies, setMovies] = React.useState([]);
@@ -23,14 +21,17 @@ export const Add = () => {
       title,
       description,
     };
+    
+    // Guardar la película en el estado local
+    setMovies([...movies, movie]); 
+    // Guardar la película en el estado del componente padre
+    setListState(elements =>{
+      return [...elements, movie];
+    })
 
-    setMovies([...movies, movie]); // Agrega la nueva película al array
-    // Limpiar los campos del formulario después de agregar la película.
     e.target.title.value = "";
     e.target.description.value = "";
 
-    // Guardar en el almacenamiento local
-    localStorage.setItem("movies", JSON.stringify([...movies, movie]));
     SaveInStorage("movies", movie);
   };
 
