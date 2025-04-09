@@ -159,7 +159,7 @@ header img {
 
 .content{
   grid-area: content;
-  background-image: url("./img/popcorn.jpg");
+  background-image: url("../img/popcorn.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: block;

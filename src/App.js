@@ -4,7 +4,7 @@ import { Search } from "./components/Search";
 import { Footer } from "./components/Footer";
 import { Create } from "./components/Create";
 import { List } from "./components/List";
-import "./index.css";
+import "./css/index.css";
 import { useState } from "react";
 
 function App() {

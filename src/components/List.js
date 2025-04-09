@@ -1,37 +1,73 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import { FormEdit } from "./FormEdit";
+import '../css/list.css';
 
-export const List = ({listState, setListState}) => {
-  
-  useEffect(() => {
-    getMovies();
-  }, []);
+export const List = ({ listState, setListState }) => {
+  const [editMovie, setEditMovie] = useState(null);
 
-  const getMovies = () => {
+  // Definimos getMovies usando useCallback para memoizarla
+  const getMovies = useCallback(() => {
     let movies = JSON.parse(localStorage.getItem("movies")) || [];
     setListState(movies);
     return movies;
-  };
+  }, [setListState]); // Dependencia: setListState (podría no ser necesaria si nunca cambia fuera de este componente)
+
+  useEffect(() => {
+    getMovies();
+  }, [getMovies]); // Ahora getMovies es una dependencia estable
 
   const deleteMovie = (id) => {
     let movies = getMovies();
-    let newMovies = movies.filter(movie => movie.id !== parseInt(id));
+    let newMovies = movies.filter((movie) => movie.id !== parseInt(id));
     setListState(newMovies);
     localStorage.setItem("movies", JSON.stringify(newMovies));
-  }
+  };
+
+  const updateMovie = (id, title, description) => {
+    let movies = [...listState];
+    const movieIndex = movies.findIndex(movie => movie.id === id);
+
+    if (movieIndex !== -1) {
+      movies[movieIndex] = { ...movies[movieIndex], title, description };
+      setListState(movies);
+      localStorage.setItem("movies", JSON.stringify(movies));
+    }
+  };
+
+  const handleEdit = (movie) => {
+    setEditMovie(movie);
+  };
+
+  const handleCloseModal = () => {
+    setEditMovie(null);
+  };
 
   return (
     <>
-      {listState != null ? listState.map(movie => {
-        return ( 
-            <article key={movie.id} className="item">
-              <h3 className="title">{movie.title}</h3>
-              <p className="description">{movie.description}</p>
-              <button className="edit">Editar</button>
-              <button className="delete" onClick={()=> deleteMovie(movie.id)}>Eliminar</button>
-            </article>
-        );
-      })
-    : <h2>No hay películas</h2>}
+      {listState != null ? (
+        listState.map((movie) => (
+          <article key={movie.id} className="item">
+            <h3 className="title">{movie.title}</h3>
+            <p className="description">{movie.description}</p>
+            <button className="edit" onClick={() => handleEdit(movie)}>
+              Editar
+            </button>
+            <button className="delete" onClick={() => deleteMovie(movie.id)}>
+              Eliminar
+            </button>
+          </article>
+        ))
+      ) : (
+        <h2>No hay películas</h2>
+      )}
+
+      {editMovie && (
+        <div className="modal-overlay" onClick={handleCloseModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <FormEdit movie={editMovie} setEdit={setEditMovie} onUpdate={updateMovie} />
+          </div>
+        </div>
+      )}
     </>
   );
 };
