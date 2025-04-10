@@ -56,20 +56,6 @@ export const Create = ({setListState}) => {
         ></textarea>
         <button type="submit">Agregar</button>
       </form>
-
-      {/* Mostrar las películas agregadas */}
-      {movies.length > 0 && (
-        <div className="movie-list">
-          <h4>Películas Agregadas:</h4>
-          <ul>
-            {movies.map((movie) => (
-              <li key={movie.id}>
-                <strong>{movie.title}</strong>: {movie.description}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 };
