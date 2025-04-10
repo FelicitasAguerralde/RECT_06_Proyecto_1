@@ -17,12 +17,12 @@ function App() {
 
       <section className="content">
         <div className="featured">
-          <List listState={listState} setListState={setListState}/>
+          <List listState={listState} setListState={setListState} />
         </div>
       </section>
 
       <aside className="lateral">
-        <Search />
+        <Search listState={listState} setListState={setListState} />
         <Create setListState={setListState}/>
       </aside>
       <Footer />

@@ -1,20 +1,20 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { FormEdit } from "./FormEdit";
-import '../css/list.css';
+import '../css/index.css';
 
 export const List = ({ listState, setListState }) => {
   const [editMovie, setEditMovie] = useState(null);
 
-  // Definimos getMovies usando useCallback para memoizarla
+  // Se define getMovies usando useCallback para memoizarla
   const getMovies = useCallback(() => {
     let movies = JSON.parse(localStorage.getItem("movies")) || [];
     setListState(movies);
     return movies;
-  }, [setListState]); // Dependencia: setListState (podría no ser necesaria si nunca cambia fuera de este componente)
+  }, [setListState]);
 
   useEffect(() => {
     getMovies();
-  }, [getMovies]); // Ahora getMovies es una dependencia estable
+  }, [getMovies]); // Ahora getMovies es una dependencia estable-
 
   const deleteMovie = (id) => {
     let movies = getMovies();
