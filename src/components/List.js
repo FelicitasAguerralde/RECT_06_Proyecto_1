@@ -51,12 +51,12 @@ export const List = ({ listState, setListState }) => {
           <article key={movie.id} className="item">
             <h3 className="title">{movie.title}</h3>
             <p className="description">{movie.description}</p>
+            <div className="buttons">
             <button className="edit" onClick={() => handleEdit(movie)}>
-              Editar
             </button>
             <button className="delete" onClick={() => deleteMovie(movie.id)}>
-              Eliminar
             </button>
+            </div>
           </article>
         ))
       ) : (

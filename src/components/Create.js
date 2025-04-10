@@ -55,7 +55,7 @@ export const Create = ({setListState}) => {
           maxLength={150}
           rows={4}
         ></textarea>
-        <button type="submit">Agregar</button>
+        <button className="add" type="submit">Agregar</button>
       </form>
     </div>
   );

@@ -34,8 +34,6 @@ export const Search = ({listState, setListState}) => {
 
   return (
     <div className="search">
-      <h3 className="title">Buscador</h3>
-      {noResults && <span className="no-results">No se encontró ninguna película</span>}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -45,8 +43,9 @@ export const Search = ({listState, setListState}) => {
           value={search}
           onChange={searchMovies}
           placeholder="Buscar..." />
-        <button type="submit">Buscar</button>
+        <button className="search" type="submit"></button>
       </form>
+      {noResults && <span className="no-results">No hubo ninguna película</span>}
     </div>
   )
 }
