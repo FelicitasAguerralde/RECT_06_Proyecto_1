@@ -3,7 +3,7 @@ import "../css/index.css"
 import { SaveInStorage } from "../helpers/SaveInStorage";
 
 export const Create = ({setListState}) => {
-  const title = "Agregar Pelicula";
+  const title = "Agregar Película";
 
   const [movies, setMovies] = React.useState([]);
 
