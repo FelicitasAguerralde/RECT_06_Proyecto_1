@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/index.css"
 import { SaveInStorage } from "../helpers/SaveInStorage";
 
 export const Create = ({setListState}) => {
