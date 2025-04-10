@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../css/index.css"
 export const FormEdit = ({ movie, setEdit, onUpdate }) => {
   // Recibimos movie, setEdit y onUpdate como props
 
@@ -27,7 +27,7 @@ export const FormEdit = ({ movie, setEdit, onUpdate }) => {
           name="description"
           defaultValue={movie.description}
         />
-        <button type="submit">Guardar Cambios</button> {/* Cambiamos el texto del botón */}
+        <button className="save" type="submit">Guardar Cambios</button> {/* Cambiamos el texto del botón */}
       </form>
     </div>
   );

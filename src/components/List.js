@@ -17,10 +17,12 @@ export const List = ({ listState, setListState }) => {
   }, [getMovies]); // Ahora getMovies es una dependencia estable-
 
   const deleteMovie = (id) => {
+    if (window.confirm("¿Estás seguro de que deseas eliminar esta película?")) {
     let movies = getMovies();
     let newMovies = movies.filter((movie) => movie.id !== parseInt(id));
     setListState(newMovies);
     localStorage.setItem("movies", JSON.stringify(newMovies));
+    }
   };
 
   const updateMovie = (id, title, description) => {

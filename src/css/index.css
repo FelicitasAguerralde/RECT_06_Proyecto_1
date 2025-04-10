@@ -77,6 +77,14 @@ input[type="button"]{
   margin-right: 8px;
 }
 
+button.save{
+  background-color: var(--color-secondary);
+}
+
+button.save:hover{
+  background-color:var(--color-accent);
+}
+
 
 /*----------------------------Header-----------------------------*/
 .header{
@@ -210,6 +218,8 @@ article h3.title{
   white-space: nowrap;
   overflow: hidden; 
   text-overflow: ellipsis;
+  font-style: italic;
+  font-size: 22px;
 }
 
 /*----------------------------Lateral-----------------------------*/
@@ -298,7 +308,47 @@ input, textarea{
   }
 
   .item {
-      width: 90%;
+      width: max-content;
+      flex-basis: calc(100% - 20px);
+      height: max-content;
       box-sizing: border-box;
   }
+
+  .footer{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
+@media (min-width:361px) and (max-width: 900px) {
+  .layout {
+      grid-template-areas:
+          "header header"
+          "nav nav"
+          "content content"
+          "lateral lateral"
+          "footer footer";
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto auto auto;
+  }
+
+  .content {
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+  }
+
+  .item {
+      width: max-content;
+      flex-basis: calc(40% - 10px);
+      height: max-content;
+      box-sizing: border-box;
+  }
+
+  .footer{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+
