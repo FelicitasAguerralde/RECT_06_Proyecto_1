@@ -52,7 +52,7 @@ export const Create = ({setListState}) => {
           id="description"
           name="description"
           placeholder="Descripción"
-          maxLength={150}
+          maxLength={140}
           rows={4}
         ></textarea>
         <button className="add" type="submit">Agregar</button>

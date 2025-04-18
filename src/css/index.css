@@ -1,8 +1,7 @@
-
-:root{
+:root {
   --color-primary: #ff5900;
   --color-secondary: #cd761c;
-  --color-accent: #FF5900;
+  --color-accent: #ff5900;
   --color-background: #0a0d18;
   --color-background-secondary: #1d2028;
   --color-background-light: #1c1f28d3;
@@ -12,7 +11,7 @@
   --color-delete: #f50905;
 }
 
-body{
+body {
   background-color: aliceblue;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
@@ -20,24 +19,23 @@ body{
   margin: 0%;
 }
 
-.layout{
+.layout {
   width: 100%;
   height: auto;
   display: grid;
   grid-template-areas:
-  "header header header header"
-  "nav nav nav nav"
-  "content content content lateral"
-  "footer footer footer footer";
+    "header header header header"
+    "nav nav nav nav"
+    "content content content lateral"
+    "footer footer footer footer";
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 120px 50px auto 70px;
 }
 
-
 /*----------------------------Button-----------------------------*/
 
-
-button.add, button.save{
+button.add,
+button.save {
   background-color: var(--color-secondary);
   color: white;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -54,19 +52,21 @@ button.add, button.save{
   border-radius: 5px;
 }
 
-button.edit{
+button.edit {
   background-image: url("../img/edit.svg");
 }
 
-button.delete{
+button.delete {
   background-image: url("../img/delete.svg");
 }
 
-button.search{
+button.search {
   background-image: url("../img/search.svg");
 }
 
-button.edit, button.delete, button.search{
+button.edit,
+button.delete,
+button.search {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -79,12 +79,13 @@ button.edit, button.delete, button.search{
   cursor: pointer;
 }
 
-button.edit:hover, button.delete:hover{
+button.edit:hover,
+button.delete:hover {
   transform: scale(1.05);
   filter: invert(1) hue-rotate(180deg) brightness(1.5);
 }
 
-.buttons{
+.buttons {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -92,25 +93,25 @@ button.edit:hover, button.delete:hover{
   margin-bottom: 0%;
 }
 
-button.add:hover, button.save:hover{
+button.add:hover,
+button.save:hover {
   background-color: var(--color-accent);
 }
 
-.item .edit{
+.item .edit {
   margin-right: 8px;
 }
 
-button.save{
+button.save {
   background-color: var(--color-secondary);
 }
 
-button.save:hover{
-  background-color:var(--color-accent);
+button.save:hover {
+  background-color: var(--color-accent);
 }
 
-
 /*----------------------------Header-----------------------------*/
-.header{
+.header {
   grid-area: header;
   background-color: var(--color-background-secondary);
   padding: 20px;
@@ -132,7 +133,8 @@ h1 {
 
 @keyframes neon-glow {
   to {
-    text-shadow: 0 0 20px var(--color-accent), 0 0 30px var(--color-accent), 0 0 40px var(--color-accent);
+    text-shadow: 0 0 20px var(--color-accent), 0 0 30px var(--color-accent),
+      0 0 40px var(--color-accent);
   }
 }
 
@@ -140,24 +142,25 @@ header img {
   width: 40px;
   padding: 10px;
 }
-header img, .logo{
+header img,
+.logo {
   filter: drop-shadow(0 0 10px var(--color-accent))
-          drop-shadow(0 0 20px var(--color-accent))
-          drop-shadow(0 0 30px var(--color-accent));
+    drop-shadow(0 0 20px var(--color-accent))
+    drop-shadow(0 0 30px var(--color-accent));
   animation: neon-glow-img 2s infinite alternate;
 }
 
 @keyframes neon-glow-img {
   to {
     filter: drop-shadow(0 0 20px var(--color-accent))
-            drop-shadow(0 0 30px var(--color-accent))
-            drop-shadow(0 0 40px var(--color-accent));
+      drop-shadow(0 0 30px var(--color-accent))
+      drop-shadow(0 0 40px var(--color-accent));
   }
 }
 
-.logo{
+.logo {
   background-image: url("../img/popcorn.svg");
-  background-size: 'cover';
+  background-size: "cover";
   background-position: center;
   background-repeat: no-repeat;
   width: 80px;
@@ -169,26 +172,30 @@ header img, .logo{
 
 /*----------------------------Nav-----------------------------*/
 
-.nav{
+.nav {
   grid-area: nav;
-  background: linear-gradient(to bottom, var(--color-background-secondary) 10%, var(--color-background) 90%);
+  background: linear-gradient(
+    to bottom,
+    var(--color-background-secondary) 10%,
+    var(--color-background) 90%
+  );
   position: sticky;
-  top:0;
+  top: 0;
 }
 
-.nav > ul{
+.nav > ul {
   display: flex;
   justify-content: center;
   align-items: center;
   list-style: none;
 }
 
-.nav li{
+.nav li {
   align-items: center;
   padding-right: 20px;
 }
 
-.nav a:hover{
+.nav a:hover {
   color: var(--color-accent);
   transform: scale(1.1);
 }
@@ -202,7 +209,7 @@ header img, .logo{
   font-size: 18px;
 }
 
-.content{
+.content {
   grid-area: content;
   background-image: url("../img/popcorn.jpg");
   background-repeat: no-repeat;
@@ -212,13 +219,13 @@ header img, .logo{
   padding-right: 30px;
 }
 
-.featured{
+.featured {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
   align-items: flex-start;
 }
-.item{
+.item {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 6px var(--color-accent);
@@ -226,44 +233,54 @@ header img, .logo{
   padding: 20px;
   flex-basis: calc(25% - 20px);
   height: 150px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease-in-out;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.2s ease-in-out;
   overflow: hidden;
 }
 
-.item:hover{
+.item:hover {
   background-color: whitesmoke;
   box-shadow: 0px 5px 15px rgb(0, 0, 0);
   transform: scale(1.05);
 }
 
-article h3.title{
+article h3.title {
   color: var(--color-accent);
   width: 100%;
   white-space: nowrap;
-  overflow: hidden; 
+  overflow: hidden;
   text-overflow: ellipsis;
   font-style: italic;
   font-size: 22px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-.add h3.title{
+p.description {
+  overflow: hidden;
+  height: 55px;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+
+.add h3.title {
   color: white;
   font-size: 20px;
 }
 
 /*----------------------------Lateral-----------------------------*/
 
-.lateral{
+.lateral {
   grid-area: lateral;
   background-image: url("../img/popcorn.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.9; 
+  opacity: 0.9;
   background-color: var(--color-background);
   padding: 20px;
 }
 
-.lateral > div{
+.lateral > div {
   box-sizing: border-box;
   width: 80%;
   margin: 30px;
@@ -277,7 +294,7 @@ article h3.title{
   animation: moveBoxShadow 4s infinite alternate;
 }
 
-@keyframes moveBoxShadow{
+@keyframes moveBoxShadow {
   0% {
     box-shadow: 6px 2px 4px 1px var(--color-secondary);
   }
@@ -293,10 +310,10 @@ article h3.title{
   100% {
     box-shadow: 6px 2px 4px 1px var(--color-secondary);
   }
-
 }
 
-input, textarea{
+input,
+textarea {
   width: 90%;
   padding: 10px;
   margin: 10px 0;
@@ -306,18 +323,18 @@ input, textarea{
 }
 
 /*----------------------------Search-----------------------------*/
-.no-results{
+.no-results {
   color: var(--color-delete);
 }
 
-.search form{
+.search form {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
 }
 
-.search button{
+.search button {
   margin-left: 6px;
 }
 
@@ -348,77 +365,83 @@ input, textarea{
 
 /*----------------------------Footer-----------------------------*/
 
-
-.footer{
+.footer {
   color: rgba(255, 255, 255, 0.454);
   grid-area: footer;
-  background: linear-gradient(to bottom, var(--color-background-secondary) 10%, var(--color-background) 90%);
+  background: linear-gradient(
+    to bottom,
+    var(--color-background-secondary) 10%,
+    var(--color-background) 90%
+  );
 }
 
 @media (max-width: 360px) {
   .layout {
-      grid-template-areas:
-          "header"
-          "nav"
-          "content"
-          "lateral"
-          "footer";
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto auto auto auto;
+    grid-template-areas:
+      "header"
+      "nav"
+      "content"
+      "lateral"
+      "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto;
   }
 
   .content {
-      flex-flow: column wrap;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
   }
 
   .item {
-      width: max-content;
-      flex-basis: calc(100% - 20px);
-      height: max-content;
-      box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: max-content;
+    flex-basis: calc(100%- 10px);
+    height: max-content;
+    box-sizing: border-box;
   }
 
-  .footer{
+  .footer {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
-@media (min-width:361px) and (max-width: 900px) {
+@media (min-width: 361px) and (max-width: 900px) {
   .layout {
-      grid-template-areas:
-          "header header"
-          "nav nav"
-          "content content"
-          "lateral lateral"
-          "footer footer";
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto auto auto auto;
+    grid-template-areas:
+      "header header"
+      "nav nav"
+      "content content"
+      "lateral lateral"
+      "footer footer";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
   }
 
   .content {
-      flex-flow: column wrap;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
   }
 
   .item {
-      width: max-content;
-      flex-basis: calc(40% - 10px);
-      height: max-content;
-      box-sizing: border-box;
+    width: max-content;
+    flex-basis: calc(40% - 10px);
+    height: max-content;
+    box-sizing: border-box;
   }
 
-  .footer{
+  .footer {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 
-.linkedin{
+.linkedin {
   background-image: url("../img/linkedin.svg");
   background-size: cover;
   background-position: center;
@@ -429,7 +452,7 @@ input, textarea{
   margin-bottom: 20px;
 }
 
-.github{
+.github {
   background-image: url("../img/github.svg");
   background-size: contain;
   background-position: center;
@@ -439,13 +462,13 @@ input, textarea{
   padding: 4px;
 }
 
-.contact p{
+.contact p {
   color: white;
   width: max-content;
   font-size: 22px;
 }
 
-.contact{
+.contact {
   display: flex;
   justify-content: center;
   align-items: left;
@@ -454,7 +477,7 @@ input, textarea{
   right: 65%;
 }
 
-h3.construction{
+h3.construction {
   font-size: 22px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: normal;
@@ -467,7 +490,7 @@ h3.construction{
   right: 70%;
 }
 
-.computer{
+.computer {
   background-image: url("../img/computer.svg");
   background-size: cover;
   background-position: center;
@@ -478,9 +501,9 @@ h3.construction{
   margin-top: 40px;
 }
 
-.wheel{
+.wheel {
   background-image: url("../img/wheel.svg");
-  background-size: contain; 
+  background-size: contain;
   position: absolute;
   top: 45%;
   right: 40%;
