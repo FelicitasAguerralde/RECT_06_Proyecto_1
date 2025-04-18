@@ -1,16 +1,17 @@
 
 :root{
   --color-primary: #ff5900;
-  --color-secondary:  #ca2173;
+  --color-secondary: #cd761c;
   --color-accent: #FF5900;
   --color-background: #0a0d18;
   --color-background-secondary: #1d2028;
   --color-background-light: #1c1f28d3;
-  --color--light-primary:#ee98a3;
+  --color--light-primary: #ffc164;
   --color-text: #333;
   --color-edit: #7000ff;
   --color-delete: #f50905;
 }
+
 body{
   background-color: aliceblue;
   font-family: Arial, Helvetica, sans-serif;
@@ -69,8 +70,8 @@ button.edit, button.delete, button.search{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   background-color: transparent;
   padding: 12px;
   border: none;
@@ -79,7 +80,7 @@ button.edit, button.delete, button.search{
 }
 
 button.edit:hover, button.delete:hover{
-  transform: scale(1.2);
+  transform: scale(1.05);
   filter: invert(1) hue-rotate(180deg) brightness(1.5);
 }
 
@@ -245,25 +246,54 @@ article h3.title{
   font-size: 22px;
 }
 
+.add h3.title{
+  color: white;
+  font-size: 20px;
+}
+
 /*----------------------------Lateral-----------------------------*/
 
 .lateral{
   grid-area: lateral;
-  background-color: var(--color-background-light);
+  background-image: url("../img/popcorn.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9; 
+  background-color: var(--color-background);
   padding: 20px;
 }
 
 .lateral > div{
   box-sizing: border-box;
-  width: 90%;
-  margin: 20px;
+  width: 80%;
+  margin: 30px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background: rgb(232, 220, 220);
-  border-radius: 10px;
-  box-shadow: 2px 4px 6px var(--color-secondary);
+  background: transparent;
+  border-radius: 60px;
+  box-shadow: 1px 2px 4px 6px var(--color-secondary);
+  animation: moveBoxShadow 4s infinite alternate;
+}
+
+@keyframes moveBoxShadow{
+  0% {
+    box-shadow: 6px 2px 4px 1px var(--color-secondary);
+  }
+  25% {
+    box-shadow: -6px 2px 4px 1px var(--color-secondary);
+  }
+  50% {
+    box-shadow: -6px -2px 4px 1px var(--color-secondary);
+  }
+  75% {
+    box-shadow: 6px -2px 4px 1px var(--color-secondary);
+  }
+  100% {
+    box-shadow: 6px 2px 4px 1px var(--color-secondary);
+  }
+
 }
 
 input, textarea{
@@ -388,4 +418,84 @@ input, textarea{
   }
 }
 
+.linkedin{
+  background-image: url("../img/linkedin.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 50px;
+  margin: 4px;
+  margin-bottom: 20px;
+}
 
+.github{
+  background-image: url("../img/github.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 50px;
+  padding: 4px;
+}
+
+.contact p{
+  color: white;
+  width: max-content;
+  font-size: 22px;
+}
+
+.contact{
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  position: absolute;
+  right: 65%;
+}
+
+h3.construction{
+  font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: absolute;
+  right: 70%;
+}
+
+.computer{
+  background-image: url("../img/computer.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  margin: 4px;
+  margin-top: 40px;
+}
+
+.wheel{
+  background-image: url("../img/wheel.svg");
+  background-size: contain; 
+  position: absolute;
+  top: 45%;
+  right: 40%;
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+  margin-bottom: 20px;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
